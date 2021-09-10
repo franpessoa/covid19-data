@@ -1,0 +1,43 @@
+body {
+    background-color: #161616;
+    color: #e5e5e5;
+}
+
+.h1 {
+    margin-left: 3rem;
+    margin-top: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    border-spacing: 0;
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.table {
+    border-spacing: 0;
+    margin-top: 1rem;
+    margin-left: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.table__row:nth-child(even) {
+    background-color: #e5e5e505;
+}
+
+.table__row:nth-child(odd) {
+    background-color: #ffffff60;
+}
+
+.table__header {
+    text-align: left;
+}
+
+.table__cell {
+    padding: 8px;
+}
