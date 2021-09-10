@@ -3,7 +3,7 @@ from covidapi_py import getdata
 
 app = Flask('')
 
-headings = ('Nome', 'Casos', 'Mortes', 'Mortes/Casos')
+headings = ('Nome', 'Casos', 'Mortes', 'Mortes/100 Casos')
 data = getdata()
 
 @app.route('/')

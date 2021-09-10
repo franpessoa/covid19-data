@@ -23,7 +23,7 @@ def getdata():
         estados['nome'].append(states['state'])
         estados['casos'].append(states['cases'])
         estados['mortes'].append(states['deaths'])
-        estados['casos-mortes'].append(float(int(states['deaths'])/int(states['cases'])))
+        estados['casos-mortes'].append(float(int(states['deaths'])/int(states['cases']*100)))
         
     brasil = getbrasil()
     estados['nome'].append('Total Brasil:')
@@ -42,6 +42,6 @@ def getbrasil():
     brtotal = {
         'casos' : covid['data']['confirmed'],
         'mts' : covid['data']['deaths'],
-        'casos-mts' : int(covid['data']['deaths']) / int(covid['data']['confirmed']) 
+        'casos-mts' : int(covid['data']['deaths']) / int(covid['data']['confirmed']*100) 
     }
     return brtotal
