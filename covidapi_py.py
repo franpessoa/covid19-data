@@ -1,15 +1,9 @@
 import requests
 import json
 
-api_uris = {
-    'brestado' : 'https://covid19-brazil-api.now.sh/api/report/v1',
-    'brpais' : 'https://covid19-brazil-api.now.sh/api/report/v1/brazil',
-    'allcountries' : 'https://covid19-brazil-api.now.sh/api/report/v1/countries'
-}
-
 def getdata():
     # Get per BR states #
-    covid = json.loads(requests.get(api_uris['brestado']).text)
+    covid = json.loads(requests.get('https://covid19-brazil-api.now.sh/api/report/v1').text)
 
     estados = {
         'nome' : [],
@@ -23,7 +17,7 @@ def getdata():
         estados['nome'].append(states['state'])
         estados['casos'].append(states['cases'])
         estados['mortes'].append(states['deaths'])
-        estados['casos-mortes'].append(float('{:.3f}'.format(int(states['deaths'])/int(states['cases']))*100))
+        estados['casos-mortes'].append(int(states['deaths'])/int(states['cases'])*100)
         
     brasil = getbrasil()
     estados['nome'].append('Total Brasil:')
@@ -38,10 +32,10 @@ def getdata():
     return tuple(data)
 
 def getbrasil():
-    covid = json.loads(requests.get(api_uris['brpais']).text)
+    covid = json.loads(requests.get('https://covid19-brazil-api.now.sh/api/report/v1/brazil').text)
     brtotal = {
         'casos' : covid['data']['confirmed'],
         'mts' : covid['data']['deaths'],
-        'casos-mts' : float('{:.3f}'.format(int(covid['data']['deaths']) / int(covid['data']['confirmed'])*100))
+        'casos-mts' : float(int(covid['data']['deaths']) / int(covid['data']['confirmed'])*100)
     }
     return brtotal
